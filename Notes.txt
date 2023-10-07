@@ -1,0 +1,26 @@
+Location of database file for Linux: ./.dart_tool/sqflite_common_ffi/databases/gigbase.db
+No longer used, now copied from assets/gigbase.db at start (Linux & Android, and supposedly other platforms)
+To delete saved Linux db:
+    rm .dart_tool/sqflite_common_ffi/databases/gigbase.db*
+
+To copy from ~data:
+    mv ~/data/gigbase.sqlite assets/gigbase.db
+
+To build APK:
+    flutter build apk
+
+Output:
+    build/app/outputs/flutter-apk/app-release.apk
+
+Permissions didn't start working until lines added to
+    ./android/app/src/profile/AndroidManifest.xml
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE_INTERNAL"/>
+
+To set the icon:
+    Place 512x512 PNG in assets/icon/icon.png
+    dart run flutter_launcher_icons
+    flutter clean
+    flutter build apk
